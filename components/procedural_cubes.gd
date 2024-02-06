@@ -1,7 +1,7 @@
 class_name ProceduralCubeShape
 extends Node3D
 
-@export var branch_count = 2
+@export var branch_count = 4
 @export var max_branch_len = 5
 @export var size = Vector3(10, 10, 10)
 
@@ -39,6 +39,11 @@ func _ready():
 			var new_cube = joint
 			new_cube[axis] += ((j+1)*sign(branch_len))
 			cube_vecs.append(new_cube)
+	
+	for vec in cube_vecs:
+		var new_cube = $Cube.duplicate()
+		new_cube.global_position = vec
+		add_child(new_cube)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
