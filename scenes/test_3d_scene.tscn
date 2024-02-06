@@ -16,7 +16,7 @@ script = ExtResource("1_dbdlu")
 [node name="LightmapGI" type="LightmapGI" parent="."]
 
 [node name="Procedural Cubes" parent="." instance=ExtResource("1_qgeib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, -10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.385342, 0.922774, 0, -0.922774, 0.385342, 0, 0, 0)
