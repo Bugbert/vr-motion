@@ -1,40 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://kcyty54ino0a"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w6c8t"]
+[ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
+[ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
+[ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p13af"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j57q3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fes6y"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_si784"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2img1"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_u8jih"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_dbdlu")
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255891, 0)
-metadata/_edit_group_ = true
+[node name="Procedural Cubes" parent="." instance=ExtResource("1_qgeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -10)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_w6c8t")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.385342, 0.922774, 0, -0.922774, 0.385342, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("PlaneMesh_p13af")
-surface_material_override/0 = SubResource("StandardMaterial3D_fes6y")
+[node name="Player" parent="." instance=ExtResource("1_tvbwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11612, 0)
-metadata/_edit_group_ = true
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475424, 0)
-fov = 70.3125
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_j57q3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_si784")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
-mesh = SubResource("CapsuleMesh_2img1")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_u8jih")
