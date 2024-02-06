@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk7ly4xth3ysy"]
-
-[ext_resource type="Script" path="res://scenes/instuct.gd" id="1_n1ppx"]
-[ext_resource type="PackedScene" uid="uid://2k6gsjahf0rf" path="res://scenes/instructions_menu.tscn" id="2_vsc46"]
+[gd_scene format=3 uid="uid://dk7ly4xth3ysy"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,7 +7,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="main_screen" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +32,7 @@ offset_bottom = 392.0
 theme_override_font_sizes/font_size = 50
 text = "start"
 
-[node name="instuct" type="Button" parent="main_screen"]
+[node name="instructions" type="Button" parent="main_screen"]
 layout_mode = 2
 offset_left = 79.0
 offset_top = 438.0
@@ -44,7 +40,6 @@ offset_right = 379.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
 text = "instructions"
-script = ExtResource("1_n1ppx")
 
 [node name="settings" type="Button" parent="main_screen"]
 layout_mode = 2
@@ -63,6 +58,3 @@ offset_right = 1065.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
 text = "exit"
-
-[node name="InstructionsMenu" parent="." instance=ExtResource("2_vsc46")]
-layout_mode = 1
