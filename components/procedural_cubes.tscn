@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://686uh750o2ls"]
+
+[ext_resource type="Script" path="res://components/procedural_cubes.gd" id="1_dx8h4"]
+[ext_resource type="PackedScene" uid="uid://bhtyu0fyx16wa" path="res://components/cube.tscn" id="2_fy25k"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_dx8h4")
+
+[node name="Cube" parent="." instance=ExtResource("2_fy25k")]
