@@ -3,8 +3,13 @@ extends Node3D
 
 @export var branch_count = 3
 @export var max_branch_len = 5
+# TODO: Currently unused, this should create a box limit for the cubes
 @export var size = Vector3(10, 10, 10)
 
+# As Vector3s can be indexed as arrays, (0, 1, 2) substitute (X, Y, Z) in many
+# Places in this script.
+
+# These can be added to and subtracted from vectors to get the ones adjacent.
 const ADJACENT_VECS = [Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)]
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +18,12 @@ func _ready():
 	# The "root" vector is at the origin.
 	var cube_vecs: Array[Vector3] = [Vector3.ZERO]
 	for _i in range(branch_count):
+		# Joint specifies the vector from which the branch will spawn
 		var joint: Vector3
+		# Array of axises that are available as to prevent branches folding
+		# in on themselves
 		var open_axises: Array[int]
+		# Keep choosing a radom joint unitl one has availabe axises
 		while !open_axises.size():
 			# Choose a random vec from which to branch from.
 			joint = cube_vecs[randi() % cube_vecs.size()]
@@ -25,6 +34,7 @@ func _ready():
 					open_axises.append(j)
 		var axis = open_axises[randi() % open_axises.size()]
 		var branch_len: int
+		# Make sure the branch length isn't zero
 		while !branch_len:
 			branch_len = randi_range(-max_branch_len, max_branch_len)
 		for j in range(abs(branch_len)):
