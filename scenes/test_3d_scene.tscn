@@ -19,7 +19,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, -10)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.96217, -0.104986, -0.251408, 0.272448, 0.370765, 0.887866, 0, -0.922774, 0.385342, 0, 0, 0)
 light_energy = 1.2
-shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_tvbwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27425, 0)
