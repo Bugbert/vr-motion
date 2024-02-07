@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kcyty54ino0a"]
+[gd_scene load_steps=6 format=3 uid="uid://kcyty54ino0a"]
 
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
@@ -7,8 +7,6 @@
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j57q3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u8jih"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tu6pr"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_dbdlu")
@@ -19,7 +17,7 @@ script = ExtResource("1_dbdlu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, -10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.385342, 0.922774, 0, -0.922774, 0.385342, 0, 0, 0)
+transform = Transform3D(0.96217, -0.104986, -0.251408, 0.272448, 0.370765, 0.887866, 0, -0.922774, 0.385342, 0, 0, 0)
 light_energy = 1.2
 shadow_enabled = true
 
@@ -27,6 +25,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27425, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
@@ -34,8 +33,3 @@ shape = SubResource("WorldBoundaryShape3D_j57q3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 mesh = SubResource("PlaneMesh_u8jih")
-
-[node name="Panel" type="Panel" parent="."]
-material = SubResource("CanvasItemMaterial_tu6pr")
-offset_right = 1118.0
-offset_bottom = 432.0
