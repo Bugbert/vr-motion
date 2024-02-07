@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bouyuwqqf2n0a"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
