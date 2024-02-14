@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7d6v2ukjx2m6"]
+
+[ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_86t37"]
+[ext_resource type="Script" path="res://components/shape_viewport.gd" id="1_ctthc"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ctthc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Cubes" parent="." instance=ExtResource("1_86t37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
