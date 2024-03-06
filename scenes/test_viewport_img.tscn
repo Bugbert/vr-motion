@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bouyuwqqf2n0a"]
+
+[ext_resource type="PackedScene" uid="uid://bhtyu0fyx16wa" path="res://components/cube.tscn" id="1_0ill5"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dxgra"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3a3um"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icuur"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_3a3um")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.949819, -0.210247, 0.231602, -6.04914e-09, 0.740418, 0.672147, -0.312799, -0.638418, 0.703263, 0, 0, 0)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="cube" parent="." instance=ExtResource("1_0ill5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4881, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.0334)
+mesh = SubResource("QuadMesh_dxgra")
+surface_material_override/0 = SubResource("StandardMaterial3D_icuur")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.482363, 0.000903478, -0.875971, 0.0189817, 0.999754, 0.0114836, 0.875766, -0.0221667, 0.482227, 6.97968, 0.941441, 1.74196)
