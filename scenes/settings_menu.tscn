@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dq8wnorvv335y"]
+[gd_scene load_steps=2 format=3 uid="uid://dq8wnorvv335y"]
+
+[ext_resource type="Script" path="res://scenes/main_menu_button.gd" id="1_2gq0i"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -8,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="graphics" type="Button" parent="."]
 layout_mode = 0
 offset_left = 306.0
 offset_top = 175.0
@@ -17,7 +19,7 @@ offset_bottom = 238.0
 theme_override_font_sizes/font_size = 30
 text = "graphics"
 
-[node name="Button2" type="Button" parent="."]
+[node name="account" type="Button" parent="."]
 layout_mode = 0
 offset_left = 307.0
 offset_top = 291.0
@@ -26,7 +28,7 @@ offset_bottom = 354.0
 theme_override_font_sizes/font_size = 30
 text = "account"
 
-[node name="Button3" type="Button" parent="."]
+[node name="accessability" type="Button" parent="."]
 layout_mode = 0
 offset_left = 306.0
 offset_top = 411.0
@@ -35,7 +37,7 @@ offset_bottom = 474.0
 theme_override_font_sizes/font_size = 30
 text = "accessability"
 
-[node name="Button4" type="Button" parent="."]
+[node name="main menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 309.0
 offset_top = 530.0
@@ -43,6 +45,7 @@ offset_right = 859.0
 offset_bottom = 593.0
 theme_override_font_sizes/font_size = 30
 text = "back to main menu"
+script = ExtResource("1_2gq0i")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -50,3 +53,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 50
 text = "settings"
+
+[connection signal="pressed" from="main menu" to="main menu" method="_on_pressed"]

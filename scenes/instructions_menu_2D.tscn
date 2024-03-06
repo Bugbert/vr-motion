@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd7hkbnfunq18"]
+
+[ext_resource type="Script" path="res://scenes/intro_button2.gd" id="1_4xum7"]
+
+[node name="InstructionsMenu_2DExpect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "introduction (2D)"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 567.0
+offset_right = 1134.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 25
+text = "next: what to expect (3D)"
+script = ExtResource("1_4xum7")
+
+[node name="info" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 140.0
+offset_right = 1176.0
+offset_bottom = 497.0
+theme_override_font_sizes/font_size = 30
+text = "In the first stage, users engage in mentally rotating isometric images, similar to 
+the Vandenburg rotation task but with a modern twist. They are presented with 
+a pattern of boxes and must identify the original image among options that 
+have been rotated. This mental rotation training lays the groundwork for 
+reducing motion sickness by training the brain to adapt to spatial changes 
+more effectively."
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cerydun80d6ck"]
+
+[ext_resource type="Script" path="res://scenes/main_menu_button.gd" id="1_s71nb"]
+
+[node name="InstructionsMenu3DExpect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "introduction (3D)"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 567.0
+offset_right = 1134.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 25
+text = "back to main menu"
+script = ExtResource("1_s71nb")
+
+[node name="info" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 129.0
+offset_right = 1178.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 30
+text = "After the first stage the user will enter stage two where they will interact with a 
+moving object (via controller) controlled by you, further enhancing the training 
+experience and potentially reducing motion sickness even more. (I'll add more 
+details to stage 2 as it comes along.)"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

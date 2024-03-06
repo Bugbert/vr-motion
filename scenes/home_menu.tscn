@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://dk7ly4xth3ysy"]
+[gd_scene load_steps=4 format=3 uid="uid://culm03ffr6iku"]
+
+[ext_resource type="Script" path="res://scenes/instructions_button.gd" id="1_jieat"]
+[ext_resource type="Script" path="res://scenes/home_settings_button.gd" id="2_somxs"]
+[ext_resource type="Script" path="res://scenes/exit_button.gd" id="3_gmvbj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -40,6 +44,7 @@ offset_right = 379.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
 text = "instructions"
+script = ExtResource("1_jieat")
 
 [node name="settings" type="Button" parent="main_screen"]
 layout_mode = 2
@@ -49,6 +54,7 @@ offset_right = 722.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
 text = "settings"
+script = ExtResource("2_somxs")
 
 [node name="exit" type="Button" parent="main_screen"]
 layout_mode = 2
@@ -58,3 +64,8 @@ offset_right = 1065.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
 text = "exit"
+script = ExtResource("3_gmvbj")
+
+[connection signal="pressed" from="main_screen/instructions" to="main_screen/instructions" method="_on_pressed"]
+[connection signal="pressed" from="main_screen/settings" to="main_screen/settings" method="_on_pressed"]
+[connection signal="pressed" from="main_screen/exit" to="main_screen/exit" method="_on_pressed"]
