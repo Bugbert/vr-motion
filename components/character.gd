@@ -6,6 +6,8 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var marker = preload("res://components/cube.tscn")
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -23,3 +25,5 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+	
+

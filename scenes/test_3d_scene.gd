@@ -13,11 +13,11 @@ func _ready():
 	for i in range(3):
 		visible_shape.global_rotation[i] = randf()*2*PI
 	add_child(visible_shape)
-	visible_shape.global_position = Vector3(0, 10, -10)
+	visible_shape.global_position = Vector3(0, 6, -10)
 	
 	print(real_shape_index)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	pass
