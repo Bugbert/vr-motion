@@ -7,7 +7,7 @@ extends Node3D
 # These can be added to and subtracted from vectors to get the ones adjacent.
 const ADJACENT_VECS = [Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)]
 
-func generate(branch_count=3, max_branch_len=5):
+func generate(branch_count=3, max_branch_len=4):
 	print("randomizing!")
 	# It's simplist to create the shape as an array of vectors first.
 	# The "root" vector is at the origin.
