@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
 [ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
-[ext_resource type="PackedScene" path="res://components/shape_viewport.tscn" id="4_8pfyk"]
+[ext_resource type="PackedScene" uid="uid://b7d6v2ukjx2m6" path="res://components/shape_viewport.tscn" id="4_8pfyk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_eyekw"]
 
