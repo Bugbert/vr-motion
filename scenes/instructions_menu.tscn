@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://2k6gsjahf0rf"]
+[gd_scene load_steps=3 format=3 uid="uid://2k6gsjahf0rf"]
+
+[ext_resource type="Script" path="res://scenes/intro_button1.gd" id="1_7h5ua"]
+[ext_resource type="Script" path="res://scenes/main_menu_button.gd" id="2_fcwfo"]
 
 [node name="InstructionsMenu" type="Control"]
 layout_mode = 3
@@ -13,31 +16,40 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 50
-text = "instructions"
+text = "introduction"
 
 [node name="info" type="Label" parent="."]
 layout_mode = 0
-offset_left = 341.0
-offset_top = 154.0
-offset_right = 831.0
-offset_bottom = 556.0
+offset_left = 70.0
+offset_top = 217.0
+offset_right = 1126.0
+offset_bottom = 460.0
 theme_override_font_sizes/font_size = 30
-text = "random text here andnksasnksd
-dsksdksdasdnsda
-sasdaksdanksdsdkansdakldna
-srandom text here andnksasnksd
-dsksdksdasdnsda
-sasdaksdanksdsdkansdakldnas
-random text here andnksasnksd
-dsksdksdasdnsda
-sasdaksdanksdsdkansdakldnas
-"
+text = "Welcome to our app, designed to alleviate motion sickness through 
+visuospatial training. Research suggests that completing the Vandenburg 
+rotation task using isometric images can reduce motion sickness. 
 
-[node name="Button" type="Button" parent="."]
+Here's what you can expect:"
+
+[node name="what to expect" type="Button" parent="."]
 layout_mode = 0
 offset_left = 835.0
-offset_top = 567.0
-offset_right = 1134.0
-offset_bottom = 634.0
+offset_top = 536.0
+offset_right = 1146.0
+offset_bottom = 603.0
 theme_override_font_sizes/font_size = 25
-text = "next: what to expect"
+text = "next: what to expect (2D)"
+script = ExtResource("1_7h5ua")
+
+[node name="main menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 627.0
+offset_right = 1147.0
+offset_bottom = 694.0
+theme_override_font_sizes/font_size = 25
+text = "skip"
+script = ExtResource("2_fcwfo")
+
+[connection signal="pressed" from="what to expect" to="what to expect" method="_on_pressed"]
+[connection signal="pressed" from="main menu" to="main menu" method="_on_pressed"]
