@@ -1,19 +1,14 @@
 class_name ProceduralCubeShape
 extends Node3D
 
-@export var branch_count = 3
-@export var max_branch_len = 5
-# TODO: Currently unused, this should create a box limit for the cubes
-@export var size = Vector3(10, 10, 10)
-
 # As Vector3s can be indexed as arrays, (0, 1, 2) substitute (X, Y, Z) in many
 # Places in this script.
 
 # These can be added to and subtracted from vectors to get the ones adjacent.
 const ADJACENT_VECS = [Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func generate(branch_count=3, max_branch_len=5):
+	print("randomizing!")
 	# It's simplist to create the shape as an array of vectors first.
 	# The "root" vector is at the origin.
 	var cube_vecs: Array[Vector3] = [Vector3.ZERO]
@@ -46,6 +41,10 @@ func _ready():
 		var new_cube = $Cube.duplicate()
 		new_cube.global_position = vec
 		add_child(new_cube)
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

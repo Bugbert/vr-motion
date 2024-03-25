@@ -3,9 +3,9 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var cubes = $Cubes
+	var cube = $CubeGen
 	for i in range(3):
-		cubes.global_rotation[i] = randf()*2*PI
+		cube.global_rotation[i] = randf()*2*PI
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
