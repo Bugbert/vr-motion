@@ -1,18 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://kcyty54ino0a"]
+[gd_scene load_steps=17 format=3 uid="uid://kcyty54ino0a"]
 
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
 [ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
-[ext_resource type="PackedScene" uid="uid://b7d6v2ukjx2m6" path="res://components/shape_viewport.tscn" id="4_8pfyk"]
+[ext_resource type="Script" path="res://components/shape_rotate.gd" id="3_rv42l"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_eyekw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qmp8k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nmkp7"]
 viewport_path = NodePath("ShapeView1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqaiu"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_qmp8k")
+albedo_texture = SubResource("ViewportTexture_nmkp7")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ox5no"]
+viewport_path = NodePath("ShapeView2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mrut"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ox5no")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3afhb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wblv3"]
+viewport_path = NodePath("ShapeView3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw5cm"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_wblv3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eo5oq"]
+viewport_path = NodePath("ShapeView4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03xb7"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_eo5oq")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j57q3"]
 
@@ -21,42 +44,83 @@ albedo_texture = SubResource("ViewportTexture_qmp8k")
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_dbdlu")
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-
-[node name="Procedural Cubes" parent="." instance=ExtResource("1_qgeib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, -10)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.96217, -0.104986, -0.251408, 0.272448, 0.370765, 0.887866, 0, -0.922774, 0.385342, 0, 0, 0)
-light_energy = 1.2
+transform = Transform3D(0.965926, 0.0669873, 0.25, -0.258819, 0.25, 0.933013, -3.08008e-09, -0.965926, 0.258819, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+omni_range = 25.0
+omni_attenuation = 0.378929
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_tvbwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27425, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33596, 1.78177)
+[node name="ShapeViewMesh1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84781, 1.33596, 1.78177)
 mesh = SubResource("QuadMesh_eyekw")
 surface_material_override/0 = SubResource("StandardMaterial3D_qqaiu")
 
+[node name="ShapeViewMesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02241, 1.33596, 1.78177)
+mesh = SubResource("QuadMesh_eyekw")
+surface_material_override/0 = SubResource("StandardMaterial3D_1mrut")
+
+[node name="ShapeViewMesh3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825062, 1.33596, 1.78177)
+mesh = SubResource("QuadMesh_3afhb")
+skeleton = NodePath("../ShapeViewMesh2")
+surface_material_override/0 = SubResource("StandardMaterial3D_rw5cm")
+
+[node name="ShapeViewMesh4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64461, 1.33596, 1.78177)
+mesh = SubResource("QuadMesh_eyekw")
+surface_material_override/0 = SubResource("StandardMaterial3D_03xb7")
+
 [node name="ShapeView1" type="SubViewport" parent="."]
 
-[node name="ShapeCam1" parent="ShapeView1" instance=ExtResource("4_8pfyk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0)
+[node name="Node3D" type="Node3D" parent="ShapeView1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+script = ExtResource("3_rv42l")
+
+[node name="CubeGen" parent="ShapeView1/Node3D" instance=ExtResource("1_qgeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="ShapeView1/Node3D"]
 
 [node name="ShapeView2" type="SubViewport" parent="."]
 
-[node name="ShapeCam2" parent="ShapeView2" instance=ExtResource("4_8pfyk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -32, 0)
+[node name="Node3D" type="Node3D" parent="ShapeView2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -50, 0)
+script = ExtResource("3_rv42l")
+
+[node name="CubeGen" parent="ShapeView2/Node3D" instance=ExtResource("1_qgeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="ShapeView2/Node3D"]
 
 [node name="ShapeView3" type="SubViewport" parent="."]
 
-[node name="ShapeCam3" parent="ShapeView3" instance=ExtResource("4_8pfyk")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -32, 0)
+[node name="Node3D" type="Node3D" parent="ShapeView3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -50, 0)
+script = ExtResource("3_rv42l")
+
+[node name="CubeGen" parent="ShapeView3/Node3D" instance=ExtResource("1_qgeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="ShapeView3/Node3D"]
 
 [node name="ShapeView4" type="SubViewport" parent="."]
 
-[node name="ShapeCam4" parent="ShapeView4" instance=ExtResource("4_8pfyk")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -32, 0)
+[node name="Node3D" type="Node3D" parent="ShapeView4"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -50, 0)
+script = ExtResource("3_rv42l")
+
+[node name="CubeGen" parent="ShapeView4/Node3D" instance=ExtResource("1_qgeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="ShapeView4/Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
