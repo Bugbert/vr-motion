@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3omlvrekts4r"]
+
+[ext_resource type="Script" path="res://scenes/Score.gd" id="1_0fbwb"]
+[ext_resource type="Script" path="res://scenes/correct_screen.gd" id="1_pd7hp"]
+[ext_resource type="Script" path="res://scenes/next_button.gd" id="2_0d3sy"]
+
+[node name="WrongScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pd7hp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1208.0
+offset_bottom = 713.0
+color = Color(1, 0.25098, 0.25098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 101.0
+offset_right = 779.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 100
+text = "Wrong"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 248.0
+offset_right = 753.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 35
+script = ExtResource("1_0fbwb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 477.0
+offset_right = 796.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+script = ExtResource("2_0d3sy")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -38,9 +38,10 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed && selected.size():
 			if selected[0] == Global.real_shape_index:
 				Global.user_score += 1
+				get_tree().change_scene_to_file("res://scenes/correct_screen.tscn")
 			else:
 				Global.user_score -= 1
-			print(Global.user_score)
+				get_tree().change_scene_to_file("res://scenes/wrong_screen.tscn")
 
 func entered(i, area):
 	if area.name == "Pointer":

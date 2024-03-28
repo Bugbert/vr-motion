@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxxvpby0yvv24"]
+
+[ext_resource type="Script" path="res://scenes/correct_screen.gd" id="1_hqfew"]
+[ext_resource type="Script" path="res://scenes/Score.gd" id="1_ue18i"]
+[ext_resource type="Script" path="res://scenes/next_button.gd" id="2_8786u"]
+
+[node name="CorrectScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqfew")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1207.0
+offset_bottom = 710.0
+color = Color(0.282353, 0.741176, 0.341176, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 87.0
+offset_right = 838.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 100
+text = "Correct!"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 225.0
+offset_right = 732.0
+offset_bottom = 267.0
+theme_override_font_sizes/font_size = 30
+script = ExtResource("1_ue18i")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 470.0
+offset_right = 778.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+script = ExtResource("2_8786u")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
