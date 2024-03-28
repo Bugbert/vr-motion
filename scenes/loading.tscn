@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ba0naxxaq7j7x"]
+
+[node name="Loading" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 388.0
+offset_top = 301.0
+offset_right = 873.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 47
+text = "loading next scene..."
