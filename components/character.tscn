@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cri6cmbabdpri"]
+[gd_scene load_steps=6 format=3 uid="uid://cri6cmbabdpri"]
 
 [ext_resource type="Script" path="res://components/character.gd" id="1_f1y8r"]
 [ext_resource type="Texture2D" uid="uid://ctdskw8ii568b" path="res://icon.svg" id="2_7uc5a"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_rflur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iakwc"]
 
@@ -14,6 +16,12 @@ metadata/_edit_group_ = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 70.3125
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_rflur")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera3D"]
 position = Vector2(600, 350)

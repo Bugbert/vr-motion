@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://kcyty54ino0a"]
+[gd_scene load_steps=18 format=3 uid="uid://kcyty54ino0a"]
 
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
 [ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
 [ext_resource type="Script" path="res://components/shape_rotate.gd" id="3_rv42l"]
-[ext_resource type="Script" path="res://selection_button.gd" id="5_5hrof"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbklu"]
+size = Vector3(1, 1, 0.1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_eyekw"]
 
@@ -42,10 +44,6 @@ albedo_texture = SubResource("ViewportTexture_eo5oq")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u8jih"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_tivbr"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_pbp15"]
-
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_dbdlu")
 
@@ -63,25 +61,52 @@ omni_attenuation = 0.378929
 [node name="Player" parent="." instance=ExtResource("1_tvbwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057909, 1.27425, 6.74692)
 
-[node name="ShapeViewMesh1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84781, 1.33596, 1.78177)
+[node name="Option1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option1"]
+shape = SubResource("BoxShape3D_mbklu")
+
+[node name="ShapeViewMesh1" type="MeshInstance3D" parent="Option1"]
 mesh = SubResource("QuadMesh_eyekw")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_qqaiu")
 
-[node name="ShapeViewMesh2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02241, 1.33596, 1.78177)
+[node name="Option2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option2"]
+shape = SubResource("BoxShape3D_mbklu")
+
+[node name="ShapeViewMesh2" type="MeshInstance3D" parent="Option2"]
 mesh = SubResource("QuadMesh_eyekw")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1mrut")
 
-[node name="ShapeViewMesh3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825062, 1.33596, 1.78177)
+[node name="Option3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option3"]
+shape = SubResource("BoxShape3D_mbklu")
+
+[node name="ShapeViewMesh3" type="MeshInstance3D" parent="Option3"]
 mesh = SubResource("QuadMesh_3afhb")
-skeleton = NodePath("../ShapeViewMesh2")
+skeleton = NodePath("../../Option2/ShapeViewMesh2")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw5cm")
 
-[node name="ShapeViewMesh4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64461, 1.33596, 1.78177)
+[node name="Option4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.5, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option4"]
+shape = SubResource("BoxShape3D_mbklu")
+
+[node name="ShapeViewMesh4" type="MeshInstance3D" parent="Option4"]
 mesh = SubResource("QuadMesh_eyekw")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_03xb7")
 
 [node name="ShapeView1" type="SubViewport" parent="."]
@@ -138,55 +163,7 @@ shape = SubResource("WorldBoundaryShape3D_j57q3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 mesh = SubResource("PlaneMesh_u8jih")
 
-[node name="sphere mesh 1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.390222, 0, 0, 0, 0.390222, 0, 0, 0, 0.390222, -2.4684, 0.638198, 2.38421)
-mesh = SubResource("SphereMesh_tivbr")
-
-[node name="Area3D" type="Area3D" parent="sphere mesh 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
-shape = SubResource("SphereShape3D_pbp15")
-
-[node name="sphere mesh 2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.390222, 0, 0, 0, 0.390222, 0, 0, 0, 0.390222, -0.86479, 0.638198, 2.38421)
-mesh = SubResource("SphereMesh_tivbr")
-
-[node name="Area3D" type="Area3D" parent="sphere mesh 2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
-shape = SubResource("SphereShape3D_pbp15")
-
-[node name="sphere mesh 3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.390222, 0, 0, 0, 0.390222, 0, 0, 0, 0.390222, 0.737638, 0.638198, 2.38421)
-mesh = SubResource("SphereMesh_tivbr")
-
-[node name="Area3D" type="Area3D" parent="sphere mesh 3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 3/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
-shape = SubResource("SphereShape3D_pbp15")
-
-[node name="sphere mesh 4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.390222, 0, 0, 0, 0.390222, 0, 0, 0, 0.390222, 2.32987, 0.638198, 2.38421)
-mesh = SubResource("SphereMesh_tivbr")
-
-[node name="Area3D" type="Area3D" parent="sphere mesh 4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 4/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
-shape = SubResource("SphereShape3D_pbp15")
-
-[connection signal="input_event" from="sphere mesh 1/Area3D" to="sphere mesh 1/Area3D" method="_on_input_event"]
-[connection signal="input_event" from="sphere mesh 2/Area3D" to="sphere mesh 2/Area3D" method="_on_input_event"]
-[connection signal="input_event" from="sphere mesh 3/Area3D" to="sphere mesh 3/Area3D" method="_on_input_event"]
-[connection signal="input_event" from="sphere mesh 4/Area3D" to="sphere mesh 4/Area3D" method="_on_input_event"]
+[connection signal="area_entered" from="Option1" to="." method="_on_option_1_area_entered"]
+[connection signal="area_entered" from="Option2" to="." method="_on_option_2_area_entered"]
+[connection signal="area_entered" from="Option3" to="." method="_on_option_3_area_entered"]
+[connection signal="area_entered" from="Option4" to="." method="_on_option_4_area_entered"]
