@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://kcyty54ino0a"]
+[gd_scene load_steps=23 format=3 uid="uid://kcyty54ino0a"]
 
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
 [ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
 [ext_resource type="Script" path="res://components/shape_rotate.gd" id="3_rv42l"]
-[ext_resource type="Script" path="res://selection_button.gd" id="5_5hrof"]
+[ext_resource type="Script" path="res://scenes/sphere1.gd" id="5_5hrof"]
+[ext_resource type="Script" path="res://scenes/sphere2.gd" id="6_8gyng"]
+[ext_resource type="Script" path="res://scenes/sphere3.gd" id="7_qhvs3"]
+[ext_resource type="Script" path="res://scenes/sphere4.gd" id="8_84luf"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_eyekw"]
 
@@ -156,7 +159,7 @@ mesh = SubResource("SphereMesh_tivbr")
 
 [node name="Area3D" type="Area3D" parent="sphere mesh 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
+script = ExtResource("6_8gyng")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
@@ -168,7 +171,7 @@ mesh = SubResource("SphereMesh_tivbr")
 
 [node name="Area3D" type="Area3D" parent="sphere mesh 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
+script = ExtResource("7_qhvs3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 3/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
@@ -180,7 +183,7 @@ mesh = SubResource("SphereMesh_tivbr")
 
 [node name="Area3D" type="Area3D" parent="sphere mesh 4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707587, 0)
-script = ExtResource("5_5hrof")
+script = ExtResource("8_84luf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sphere mesh 4/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0707587, 0)
