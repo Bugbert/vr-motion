@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://culm03ffr6iku"]
+[gd_scene load_steps=6 format=3 uid="uid://culm03ffr6iku"]
 
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_7acoa"]
 [ext_resource type="Script" path="res://scenes/start.gd" id="1_ae6km"]
 [ext_resource type="Script" path="res://scenes/instructions_button.gd" id="1_jieat"]
 [ext_resource type="Script" path="res://scenes/home_settings_button.gd" id="2_somxs"]
@@ -10,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_7acoa")
 
 [node name="main_screen" type="Control" parent="."]
 layout_mode = 1

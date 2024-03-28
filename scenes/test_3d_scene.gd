@@ -25,6 +25,9 @@ func _ready():
 	print(message)
 
 func _process(_delta):
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://scenes/home_menu.tscn")
+	
 	for option in options:
 		var relative_pos = player.global_position - option.global_position
 		var theta = atan(relative_pos.x / relative_pos.z)

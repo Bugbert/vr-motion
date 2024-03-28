@@ -15,6 +15,7 @@ viewport_path = NodePath("ShapeView1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqaiu"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_nmkp7")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ox5no"]
@@ -22,6 +23,7 @@ viewport_path = NodePath("ShapeView2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mrut"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ox5no")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3afhb"]
@@ -31,6 +33,7 @@ viewport_path = NodePath("ShapeView3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw5cm"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_wblv3")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_eo5oq"]
@@ -38,6 +41,7 @@ viewport_path = NodePath("ShapeView4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03xb7"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_eo5oq")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j57q3"]

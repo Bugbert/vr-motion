@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3omlvrekts4r"]
 
 [ext_resource type="Script" path="res://scenes/Score.gd" id="1_0fbwb"]
-[ext_resource type="Script" path="res://scenes/correct_screen.gd" id="1_pd7hp"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_pd7hp"]
 [ext_resource type="Script" path="res://scenes/next_button.gd" id="2_0d3sy"]
 
 [node name="WrongScreen" type="Control"]
