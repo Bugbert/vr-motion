@@ -3,8 +3,9 @@ extends CharacterBody3D
 @export var speed = 5.0
 @export var sensitivity = .005
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready():
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+# above makes clicking not work
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
