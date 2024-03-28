@@ -3,6 +3,8 @@ extends Node3D
 @onready var options = [$Option1, $Option2, $Option3, $Option4]
 @onready var player = $Player
 
+var selected: Array[int]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.real_shape_index
@@ -31,18 +33,53 @@ func _process(_delta):
 		else:
 			option.global_rotation.y = theta + PI
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed && selected.size():
+			if selected[0] == Global.real_shape_index:
+				Global.user_score += 1
+			else:
+				Global.user_score -= 1
+			print(Global.user_score)
+
+func entered(i, area):
+	if area.name == "Pointer":
+		selected.append(i)
+		var sort = func(a, b):
+			return Global.xz_distance(options[i], player) < Global.xz_distance(options[i], player)
+		selected.sort_custom(sort)
+
+func exited(index, area):
+	if area.name == "Pointer":
+		selected.remove_at(selected.find(index))
 
 func _on_option_1_area_entered(area):
-	pass # Replace with function body.
+	entered(0, area)
 
 
 func _on_option_2_area_entered(area):
-	pass # Replace with function body.
+	entered(1, area)
 
 
 func _on_option_3_area_entered(area):
-	pass # Replace with function body.
+	entered(2, area)
 
 
 func _on_option_4_area_entered(area):
-	pass # Replace with function body.
+	entered(3, area)
+
+
+func _on_option_1_area_exited(area):
+	exited(0, area)
+
+
+func _on_option_2_area_exited(area):
+	exited(1, area)
+
+
+func _on_option_3_area_exited(area):
+	exited(2, area)
+
+
+func _on_option_4_area_exited(area):
+	exited(3, area)

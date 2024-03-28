@@ -164,6 +164,10 @@ shape = SubResource("WorldBoundaryShape3D_j57q3")
 mesh = SubResource("PlaneMesh_u8jih")
 
 [connection signal="area_entered" from="Option1" to="." method="_on_option_1_area_entered"]
+[connection signal="area_exited" from="Option1" to="." method="_on_option_1_area_exited"]
 [connection signal="area_entered" from="Option2" to="." method="_on_option_2_area_entered"]
+[connection signal="area_exited" from="Option2" to="." method="_on_option_2_area_exited"]
 [connection signal="area_entered" from="Option3" to="." method="_on_option_3_area_entered"]
+[connection signal="area_exited" from="Option3" to="." method="_on_option_3_area_exited"]
 [connection signal="area_entered" from="Option4" to="." method="_on_option_4_area_entered"]
+[connection signal="area_exited" from="Option4" to="." method="_on_option_4_area_exited"]
