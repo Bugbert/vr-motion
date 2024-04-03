@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq8wnorvv335y"]
+[gd_scene load_steps=3 format=3 uid="uid://dq8wnorvv335y"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_button.gd" id="1_2gq0i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fiov"]
+bg_color = Color(0.219608, 0.509804, 0, 1)
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -44,6 +47,7 @@ offset_top = 530.0
 offset_right = 859.0
 offset_bottom = 593.0
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3fiov")
 text = "back to main menu"
 script = ExtResource("1_2gq0i")
 
