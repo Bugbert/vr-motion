@@ -20,7 +20,7 @@ offset_top = 175.0
 offset_right = 856.0
 offset_bottom = 238.0
 theme_override_font_sizes/font_size = 30
-text = "graphics"
+text = "Graphics"
 
 [node name="account" type="Button" parent="."]
 layout_mode = 0
@@ -29,7 +29,7 @@ offset_top = 291.0
 offset_right = 857.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 30
-text = "account"
+text = "Accounts"
 
 [node name="accessability" type="Button" parent="."]
 layout_mode = 0
@@ -38,7 +38,7 @@ offset_top = 411.0
 offset_right = 856.0
 offset_bottom = 474.0
 theme_override_font_sizes/font_size = 30
-text = "accessability"
+text = "Accessibility"
 
 [node name="main menu" type="Button" parent="."]
 layout_mode = 0
@@ -48,7 +48,7 @@ offset_right = 859.0
 offset_bottom = 593.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_3fiov")
-text = "back to main menu"
+text = "Back to Main Menu"
 script = ExtResource("1_2gq0i")
 
 [node name="Label" type="Label" parent="."]
@@ -56,6 +56,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 50
-text = "settings"
+text = "Settings"
 
 [connection signal="pressed" from="main menu" to="main menu" method="_on_pressed"]

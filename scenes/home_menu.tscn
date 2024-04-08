@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://culm03ffr6iku"]
+[gd_scene load_steps=8 format=3 uid="uid://culm03ffr6iku"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_7acoa"]
 [ext_resource type="Script" path="res://scenes/start.gd" id="1_ae6km"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_185v1"]
 bg_color = Color(0.109804, 0.513726, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yak0o"]
+bg_color = Color(1, 0.25098, 0.25098, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -41,7 +44,7 @@ offset_right = 760.0
 offset_bottom = 392.0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_185v1")
-text = "start"
+text = "Start"
 script = ExtResource("1_ae6km")
 
 [node name="instructions" type="Button" parent="main_screen"]
@@ -51,7 +54,7 @@ offset_top = 438.0
 offset_right = 379.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
-text = "instructions"
+text = "Instructions"
 script = ExtResource("1_jieat")
 
 [node name="settings" type="Button" parent="main_screen"]
@@ -61,7 +64,7 @@ offset_top = 438.0
 offset_right = 722.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
-text = "settings"
+text = "Settings"
 script = ExtResource("2_somxs")
 
 [node name="exit" type="Button" parent="main_screen"]
@@ -71,7 +74,8 @@ offset_top = 438.0
 offset_right = 1065.0
 offset_bottom = 538.0
 theme_override_font_sizes/font_size = 50
-text = "exit"
+theme_override_styles/normal = SubResource("StyleBoxFlat_yak0o")
+text = "Exit"
 script = ExtResource("3_gmvbj")
 
 [connection signal="pressed" from="main_screen/start" to="main_screen/start" method="_on_pressed"]

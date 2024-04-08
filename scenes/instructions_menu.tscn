@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu_button.gd" id="2_fcwfo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkjns"]
-bg_color = Color(0.666667, 0.141176, 0.14902, 0.984314)
+bg_color = Color(1, 0.25098, 0.25098, 1)
 
 [node name="InstructionsMenu" type="Control"]
 layout_mode = 3
@@ -19,7 +19,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 50
-text = "introduction"
+text = "Introduction"
 
 [node name="info" type="Label" parent="."]
 layout_mode = 0
@@ -41,7 +41,7 @@ offset_top = 536.0
 offset_right = 1146.0
 offset_bottom = 603.0
 theme_override_font_sizes/font_size = 25
-text = "next: what to expect (2D)"
+text = "Next: What to Expect"
 script = ExtResource("1_7h5ua")
 
 [node name="main menu" type="Button" parent="."]
@@ -52,7 +52,7 @@ offset_right = 1147.0
 offset_bottom = 694.0
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_hkjns")
-text = "skip"
+text = "Skip"
 script = ExtResource("2_fcwfo")
 
 [connection signal="pressed" from="what to expect" to="what to expect" method="_on_pressed"]
