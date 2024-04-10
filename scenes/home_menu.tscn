@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://culm03ffr6iku"]
+[gd_scene load_steps=7 format=3 uid="uid://culm03ffr6iku"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_7acoa"]
 [ext_resource type="Script" path="res://scenes/start.gd" id="1_ae6km"]
 [ext_resource type="Script" path="res://scenes/instructions_button.gd" id="1_jieat"]
 [ext_resource type="Script" path="res://scenes/home_settings_button.gd" id="2_somxs"]
 [ext_resource type="Script" path="res://scenes/exit_button.gd" id="3_gmvbj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_185v1"]
+bg_color = Color(0.109804, 0.513726, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,6 +40,7 @@ offset_top = 292.0
 offset_right = 760.0
 offset_bottom = 392.0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_185v1")
 text = "start"
 script = ExtResource("1_ae6km")
 
