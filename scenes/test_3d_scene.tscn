@@ -1,9 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://kcyty54ino0a"]
+[gd_scene load_steps=24 format=3 uid="uid://kcyty54ino0a"]
 
 [ext_resource type="Script" path="res://scenes/test_3d_scene.gd" id="1_dbdlu"]
 [ext_resource type="PackedScene" uid="uid://686uh750o2ls" path="res://components/procedural_cubes.tscn" id="1_qgeib"]
 [ext_resource type="PackedScene" uid="uid://cri6cmbabdpri" path="res://components/character.tscn" id="1_tvbwn"]
+[ext_resource type="Texture2D" uid="uid://ctdskw8ii568b" path="res://icon.svg" id="2_wkdis"]
 [ext_resource type="Script" path="res://components/shape_rotate.gd" id="3_rv42l"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cvhih"]
+panorama = ExtResource("2_wkdis")
+
+[sub_resource type="Sky" id="Sky_1b2l6"]
+sky_material = SubResource("PanoramaSkyMaterial_cvhih")
+
+[sub_resource type="Environment" id="Environment_ngr7w"]
+background_mode = 1
+background_color = Color(0.317647, 0.509804, 0.619608, 1)
+sky = SubResource("Sky_1b2l6")
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.75, 0.75, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbklu"]
 size = Vector3(1, 1, 0.1)
@@ -44,12 +58,22 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_eo5oq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4n03"]
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_budx6"]
+material = SubResource("StandardMaterial3D_s4n03")
+size = Vector2(30, 30)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j57q3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u8jih"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_dbdlu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ngr7w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, 0.0669873, 0.25, -0.258819, 0.25, 0.933013, -3.08008e-09, -0.965926, 0.258819, 0, 12.3729, 0)
@@ -64,6 +88,9 @@ omni_attenuation = 0.378929
 
 [node name="Player" parent="." instance=ExtResource("1_tvbwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057909, 1.27425, 6.74692)
+
+[node name="VisibleShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.98463, -15.1607)
 
 [node name="Option1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5, 2)
@@ -124,6 +151,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="Camera3D" type="Camera3D" parent="ShapeView1/Node3D"]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShapeView1/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+mesh = SubResource("QuadMesh_budx6")
+skeleton = NodePath("../../../ShapeView4/Node3D")
+
 [node name="ShapeView2" type="SubViewport" parent="."]
 
 [node name="Node3D" type="Node3D" parent="ShapeView2"]
@@ -134,6 +166,11 @@ script = ExtResource("3_rv42l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="Camera3D" type="Camera3D" parent="ShapeView2/Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShapeView2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+mesh = SubResource("QuadMesh_budx6")
+skeleton = NodePath("../../../ShapeView4/Node3D")
 
 [node name="ShapeView3" type="SubViewport" parent="."]
 
@@ -146,6 +183,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="Camera3D" type="Camera3D" parent="ShapeView3/Node3D"]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShapeView3/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+mesh = SubResource("QuadMesh_budx6")
+skeleton = NodePath("../../../ShapeView4/Node3D")
+
 [node name="ShapeView4" type="SubViewport" parent="."]
 
 [node name="Node3D" type="Node3D" parent="ShapeView4"]
@@ -156,6 +198,10 @@ script = ExtResource("3_rv42l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="Camera3D" type="Camera3D" parent="ShapeView4/Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShapeView4/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+mesh = SubResource("QuadMesh_budx6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
