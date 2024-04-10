@@ -7,8 +7,7 @@ var selected: Array[int]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.real_shape_index
-	randomize()
+	Global.real_shape_index = randi() % 4
 	
 	var subviewports = [$ShapeView1, $ShapeView2, $ShapeView3, $ShapeView4]
 	for view in subviewports:
